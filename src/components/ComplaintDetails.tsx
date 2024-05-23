@@ -56,25 +56,28 @@ const ComplaintDetails: React.FC<{ complaintId: string }> = ({ complaintId }) =>
     <div>
       <h2>Complaint Details</h2>
       <ul>
-        <li><strong>Company:</strong> {data.company}</li>
-        <li><strong>Company Public Response:</strong> {data.company_public_response}</li>
-        <li><strong>Company Response:</strong> {data.company_response}</li>
-        <li><strong>Complaint ID:</strong> {data.complaint_id}</li>
-        <li><strong>Complaint What Happened:</strong> {data.complaint_what_happened}</li>
-        <li><strong>Consumer Consent Provided:</strong> {data.consumer_consent_provided}</li>
-        <li><strong>Consumer Disputed:</strong> {data.consumer_disputed}</li>
-        <li><strong>Date Received:</strong> {data.date_received}</li>
-        <li><strong>Date Sent to Company:</strong> {data.date_sent_to_company}</li>
-        <li><strong>Has Narrative:</strong> {data.has_narrative ? 'Yes' : 'No'}</li>
-        <li><strong>Issue:</strong> {data.issue}</li>
-        <li><strong>Product:</strong> {data.product}</li>
-        <li><strong>State:</strong> {data.state}</li>
-        <li><strong>Sub Issue:</strong> {data.sub_issue}</li>
-        <li><strong>Sub Product:</strong> {data.sub_product}</li>
-        <li><strong>Submitted Via:</strong> {data.submitted_via}</li>
-        <li><strong>Tags:</strong> {data.tags}</li>
-        <li><strong>Timely:</strong> {data.timely}</li>
-        <li><strong>Zip Code:</strong> {data.zip_code}</li>
+        <div><strong>Company:</strong> {data.company}</div>
+        <div><strong>Company Public Response:</strong> {data.company_public_response}</div>
+        <div><strong>Company Response:</strong> {data.company_response}</div>
+        <div><strong>Complaint ID:</strong> {data.complaint_id}</div>
+        <div><strong>Complaint What Happened:</strong> {data.complaint_what_happened}</div>
+        <div><strong>Consumer Consent Provided:</strong> {data.consumer_consent_provided}</div>
+        <div><strong>Consumer Disputed:</strong> {data.consumer_disputed}</div>
+        <div><strong>Date Received:</strong> {data.date_received}</div>
+        <div> <strong>Date Sent to Company:</strong> {data.date_sent_to_company}</div>
+        <div> <strong>Has Narrative:</strong> {data.has_narrative ? 'Yes' : 'No'}</div>
+        <div> <strong>Issue:</strong> {data.issue} </div>
+           {data.sub_issue && (
+            <div style={{ marginLeft: '20px' }}><em>Sub Issue:</em> {data.sub_issue}</div>
+          )}
+        <div><strong>Product:</strong> {data.product} </div> {data.sub_product && (
+        <div style={{ marginLeft: '20px' }}><em>Sub Product:</em> {data.sub_product}</div>
+      )}
+        <div><strong>State:</strong> {data.state}</div>
+        <div><strong>Submitted Via:</strong> {data.submitted_via}</div>
+        <div><strong>Tags:</strong> {data.tags}</div>
+        <div><strong>Timely:</strong> {data.timely}</div>
+        <div><strong>Zip Code:</strong> {data.zip_code}</div>
       </ul>
     </div>
   );
