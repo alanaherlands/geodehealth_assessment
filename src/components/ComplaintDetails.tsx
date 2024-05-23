@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ComplaintData } from '../types/Complaint'
+import { ApiResponse } from '../types/ApiResponse';
 
 const ComplaintDetails: React.FC<{ complaintId: string }> = ({ complaintId }) => {
   const [data, setData] = useState<ComplaintData | null>(null);
@@ -10,16 +11,26 @@ const ComplaintDetails: React.FC<{ complaintId: string }> = ({ complaintId }) =>
     if (!complaintId) return;
 
     const fetchData = async () => {
+      console.log('Fetching data for complaint ID:', complaintId);
       setLoading(true);
       setError(null);
       try {
         const response = await fetch(`/api/${complaintId}`);
+        console.log('Response status:', response.status);
         if (!response.ok) {
           throw new Error(`Error: ${response.status} ${response.statusText}`);
         }
-        const result: ComplaintData = await response.json();
-        setData(result);
+        const result: ApiResponse = await response.json();
+        console.log('Data received:', result);
+        // extract relevant data from hits array
+        if (result.hits && result.hits.hits && result.hits.hits.length > 0) {
+          const complaintData = result.hits.hits[0]._source;
+          setData(complaintData);
+        } else {
+          setError('No data found');
+        }
       } catch (err) {
+        console.error('Error:', (err as Error).message);
         setError((err as Error).message);
       } finally {
         setLoading(false);
