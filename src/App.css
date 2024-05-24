@@ -18,7 +18,7 @@ body {
 @keyframes fadeInFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10%);
+    transform: translateX(-8%);
   }
   100% {
     opacity: 1;
@@ -27,8 +27,8 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: fadeInFromLeft 0.5s ease-in-out;
+  .fadeInFromLeft {
+    animation: fadeInFromLeft 1.2s ease-in-out;
   }
 }
 

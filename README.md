@@ -33,5 +33,6 @@ You should automatically be able to open up http://localhost:3000 and view the p
 * Fetched to trends endpoint
 * Created helpful charts and visualizations using Recharts or Chart.js
 * Used more images and animations to make the application more visually appealing
+* Further refined and polished UI
 * Written unit and integration tests
 * Ensured the application was accessible (to those who are color blind, neurodivergent, among other disabilities)

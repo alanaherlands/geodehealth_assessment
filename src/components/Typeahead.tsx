@@ -43,7 +43,12 @@ const Typeahead: React.FC<TypeaheadProps> = ({ endpoint, placeholder, onSuggesti
   }, [query, endpoint]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    const value = e.target.value;
+    setQuery(value);
+
+    if (value === "") {
+      setSuggestions([]);
+    }
   };
 
   const handleSelect = (suggestion: string) => {

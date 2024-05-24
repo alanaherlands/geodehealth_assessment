@@ -20,7 +20,12 @@ useEffect(() => {
 }, []);
 
   const handleComplaintIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setComplaintId(e.target.value);
+    const value = e.target.value;
+    setComplaintId(value);
+
+    if (value === "") {
+      setSubmittedComplaintId("");
+    }
   };
 
   const handleComplaintIdSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,11 +37,11 @@ useEffect(() => {
     <div className="App" id="top">
       <NavBar />
       <header className="App-header">
-        <h1>On your side through life’s financial moments.</h1>
-        <p>We’re the Consumer Financial Protection Bureau</p>
+        <h1 className="fadeInFromLeft">On your side through life’s financial moments.</h1>
+        <p className="fadeInFromLeft">We’re the Consumer Financial Protection Bureau</p>
       </header>
       <section id="section1">
-        <h2>Complaint Details</h2>
+        <h2 className="fadeInFromLeft">Complaint Details</h2>
         <form onSubmit={handleComplaintIdSubmit}>
           <input
             type="text"
