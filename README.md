@@ -1,6 +1,6 @@
 # Getting Started
 
-First, clone this repository to your local machine.
+First, ensure ports 3000 and 3001 are free. Then, clone this repository to your local machine.
 
 Once you are in the project directory...
 
