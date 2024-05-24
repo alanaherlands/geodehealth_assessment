@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ComplaintDetails from "./components/ComplaintDetails";
 import Typeahead from "./components/Typeahead";
 import NavBar from "./components/NavBar";
 import cfpb_logo from "./cfpb_logo.png";
 import "./App.css";
 import "./components/Typeahead.css";
-
-// const searchEndpoints = {
-//   complaint: '/api/_suggest',
-//   companyName: '/api/_suggest_company',
-//   zipCode: '/api/_suggest_zip',
-//   state: '/api/geo/states'
-// }
+import SmoothScroll from 'smooth-scroll';
 
 function App() {
   const [complaintId, setComplaintId] = useState<string>("");
   const [submittedComplaintId, setSubmittedComplaintId] = useState<string>("");
-  // const [selectedCompany, setSelectedCompany] = useState<string>('');
-  // const [selectedZip, setSelectedZip] = useState<string>('');
+
+
+  // initialize SmoothScroll
+useEffect(() => {
+  const scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 800,
+    speedAsDuration: true
+  });
+  return () => scroll.destroy();
+}, []);
 
   const handleComplaintIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setComplaintId(e.target.value);
@@ -29,7 +31,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" id="top">
       <NavBar />
       <header className="App-header">
         <img src={cfpb_logo} className="App-logo" alt="logo" />
