@@ -40,12 +40,3 @@ app.get('/custom/:complaintId', async (req, res) => {
   app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
   });
-
-
-
-  // // middleware to handle CORS
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//     next();
-//   });
