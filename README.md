@@ -2,10 +2,12 @@
 
 First, clone this repository to your local machine.
 
+Once you are in the project directory...
+
 Run this command to start the proxy server
 ### `node src/server.js`
 
-Run this command once you are in the project directory to start the app up in development mode
+Then, run this command to start the app up in development mode
 ### `npm start`
 
 You should automatically be able to open up http://localhost:3000 and view the project in the browser
@@ -14,6 +16,7 @@ You should automatically be able to open up http://localhost:3000 and view the p
 # In the time allotted, I successfully...
 * Set up a working proxy server to avoid CORS errors
 * Made API requests to a variety of endpoints
+* Integrated typeahead for searching complaints, companies, and zip codes
 * Displayed API data in React components
 * Created React components
 * Used React hooks efficiently to manage state and side effects
