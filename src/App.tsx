@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ComplaintDetails from "./components/ComplaintDetails";
 import Typeahead from "./components/Typeahead";
 import NavBar from "./components/NavBar";
-import cfpb_logo from "./cfpb_logo.png";
 import "./App.css";
 import "./components/Typeahead.css";
 import SmoothScroll from 'smooth-scroll';
@@ -10,7 +9,6 @@ import SmoothScroll from 'smooth-scroll';
 function App() {
   const [complaintId, setComplaintId] = useState<string>("");
   const [submittedComplaintId, setSubmittedComplaintId] = useState<string>("");
-
 
   // initialize SmoothScroll
 useEffect(() => {
@@ -34,8 +32,8 @@ useEffect(() => {
     <div className="App" id="top">
       <NavBar />
       <header className="App-header">
-        <img src={cfpb_logo} className="App-logo" alt="logo" />
-        <p>Consumer Complaints</p>
+        <h1>On your side through life’s financial moments.</h1>
+        <p>We’re the Consumer Financial Protection Bureau</p>
       </header>
       <section id="section1">
         <h2>Complaint Details</h2>
@@ -54,12 +52,12 @@ useEffect(() => {
         <div className="typeahead-section"></div>{" "}
       </section>
       <section id="section2">
-        <h2>Complaints</h2>
+        <h1>Complaints</h1>
         <Typeahead
           endpoint="/api/_suggest"
           placeholder="Search complaints"
           onSuggestionSelected={(suggestion) =>
-            console.log("Selected suggestion:", suggestion)
+           `Selected suggestion: {suggestion}`
           }
         />
       </section>
@@ -69,7 +67,7 @@ useEffect(() => {
           endpoint="/api/_suggest_company"
           placeholder="Search companies"
           onSuggestionSelected={(suggestion) =>
-            console.log("Selected company:", suggestion)
+            `Selected suggestion: {suggestion}`
           }
         />
       </section>
@@ -79,7 +77,7 @@ useEffect(() => {
           endpoint="/api/_suggest_zip"
           placeholder="Search zip codes"
           onSuggestionSelected={(suggestion) =>
-            console.log("Selected zip:", suggestion)
+            `Selected suggestion: {suggestion}`
           }
         />
       </section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBar.css';
-import cfpb_small_logo from '../cfpb_logo.png';
+import cfpb_small_logo from '../cfpb_small_logo.png';
 
 const NavBar: React.FC = () => {
   return (

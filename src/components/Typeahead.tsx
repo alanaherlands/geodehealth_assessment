@@ -21,11 +21,10 @@ const Typeahead: React.FC<TypeaheadProps> = ({ endpoint, placeholder, onSuggesti
       setLoading(true);
       try {
         const response = await fetch(`${endpoint}?text=${encodeURIComponent(query)}&size=10`);
-        const rawResult = await response.text(); // Get the raw response as text
+        const rawResult = await response.text();
         console.log('Raw response:', rawResult);
-        const result = JSON.parse(rawResult); // Parse the raw response as JSON
+        const result = JSON.parse(rawResult);
         console.log('Parsed response:', rawResult);
-        // const result = await response.json();
         // check if the result is an array before setting it to suggestions
         if (Array.isArray(result)) {
             setSuggestions(result);

@@ -54,12 +54,11 @@ const ComplaintDetails: React.FC<{ complaintId: string }> = ({ complaintId }) =>
 
   return (
     <div>
-      <h2>Complaint Details</h2>
+      <h2>Complaint Details for ID: {complaintId}</h2>
       <ul>
         <div><strong>Company:</strong> {data.company}</div>
         <div><strong>Company Public Response:</strong> {data.company_public_response}</div>
         <div><strong>Company Response:</strong> {data.company_response}</div>
-        <div><strong>Complaint ID:</strong> {data.complaint_id}</div>
         <div><strong>Complaint What Happened:</strong> {data.complaint_what_happened}</div>
         <div><strong>Consumer Consent Provided:</strong> {data.consumer_consent_provided}</div>
         <div><strong>Consumer Disputed:</strong> {data.consumer_disputed}</div>

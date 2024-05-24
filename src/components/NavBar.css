@@ -6,12 +6,12 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    z-index: 1000; /* Ensure the nav bar stays on top */
+    z-index: 1000;
   }
   
   .nav-logo {
     height: 40px;
-    margin-right: auto; /* Pushes the logo to the left-most side */
+    margin-right: auto;
   }
   
   .nav-links {
@@ -19,6 +19,7 @@
     margin: 0;
     padding: 0;
     display: flex;
+    margin-left: auto;
   }
   
   .nav-links li {
