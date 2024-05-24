@@ -1,5 +1,6 @@
 {
   "name": "geodehealth_assessment",
+  "author": "Alana Herlands",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +16,6 @@
     "express": "^4.19.2",
     "http-proxy-middleware": "^3.0.0",
     "node-fetch": "^3.3.2",
-    "postcss": "^8.4.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -51,8 +51,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.24.5",
-    "@types/smooth-scroll": "^16.1.4",
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0"
+    "@types/smooth-scroll": "^16.1.4"
   }
 }

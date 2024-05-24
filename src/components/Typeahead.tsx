@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface TypeaheadProps {
   endpoint: string;
@@ -6,8 +6,12 @@ interface TypeaheadProps {
   onSuggestionSelected: (suggestion: string) => void;
 }
 
-const Typeahead: React.FC<TypeaheadProps> = ({ endpoint, placeholder, onSuggestionSelected }) => {
-  const [query, setQuery] = useState<string>('');
+const Typeahead: React.FC<TypeaheadProps> = ({
+  endpoint,
+  placeholder,
+  onSuggestionSelected,
+}) => {
+  const [query, setQuery] = useState<string>("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -20,20 +24,22 @@ const Typeahead: React.FC<TypeaheadProps> = ({ endpoint, placeholder, onSuggesti
     const fetchSuggestions = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${endpoint}?text=${encodeURIComponent(query)}&size=10`);
+        const response = await fetch(
+          `${endpoint}?text=${encodeURIComponent(query)}&size=10`
+        );
         const rawResult = await response.text();
-        console.log('Raw response:', rawResult);
+        console.log("Raw response:", rawResult);
         const result = JSON.parse(rawResult);
-        console.log('Parsed response:', rawResult);
+        console.log("Parsed response:", rawResult);
         // check if the result is an array before setting it to suggestions
         if (Array.isArray(result)) {
-            setSuggestions(result);
+          setSuggestions(result);
         } else {
-            setSuggestions([]);
-            console.error('Unexpected response format:', result);
+          setSuggestions([]);
+          console.error("Unexpected response format:", result);
         }
       } catch (error) {
-        console.error('Error fetching suggestions:', error);
+        console.error("Error fetching suggestions:", error);
       } finally {
         setLoading(false);
       }
@@ -46,6 +52,7 @@ const Typeahead: React.FC<TypeaheadProps> = ({ endpoint, placeholder, onSuggesti
     const value = e.target.value;
     setQuery(value);
 
+    // if user deletes input, suggestions disappear
     if (value === "") {
       setSuggestions([]);
     }
@@ -69,7 +76,11 @@ const Typeahead: React.FC<TypeaheadProps> = ({ endpoint, placeholder, onSuggesti
       {loading && <div>Loading...</div>}
       <ul className="suggestions-list">
         {suggestions.map((suggestion, index) => (
-          <li key={index} onClick={() => handleSelect(suggestion)} className="suggestion-item">
+          <li
+            key={index}
+            onClick={() => handleSelect(suggestion)}
+            className="suggestion-item"
+          >
             {suggestion}
           </li>
         ))}

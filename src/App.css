@@ -73,15 +73,15 @@ form input[type="text"] {
   max-width: 800px;
   padding: 12px 16px;
   margin-bottom: 15px;
-  border: 2px solid #606A4E;
+  border: 2px solid #606a4e;
   border-radius: 14px;
-  background-color: #E3EBDE;
+  background-color: #e3ebde;
   font-size: 25px;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 form input[type="text"]:focus {
-  border-color: #83B0D8;
+  border-color: #83b0d8;
   box-shadow: 0 0 8px rgba(131, 176, 216, 0.3);
   outline: none;
 }
@@ -90,7 +90,7 @@ form button {
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #54BF6A;
+  background-color: #54bf6a;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -98,9 +98,9 @@ form button {
 }
 
 form button:hover {
-  background-color: #73C881;
+  background-color: #73c881;
 }
 
 form button:active {
-  background-color: #54BF6A;
+  background-color: #54bf6a;
 }

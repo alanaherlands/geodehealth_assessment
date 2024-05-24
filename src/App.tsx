@@ -4,25 +4,26 @@ import Typeahead from "./components/Typeahead";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import "./components/Typeahead.css";
-import SmoothScroll from 'smooth-scroll';
+import SmoothScroll from "smooth-scroll";
 
 function App() {
   const [complaintId, setComplaintId] = useState<string>("");
   const [submittedComplaintId, setSubmittedComplaintId] = useState<string>("");
 
   // initialize SmoothScroll
-useEffect(() => {
-  const scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 800,
-    speedAsDuration: true
-  });
-  return () => scroll.destroy();
-}, []);
+  useEffect(() => {
+    const scroll = new SmoothScroll('a[href*="#"]', {
+      speed: 800,
+      speedAsDuration: true,
+    });
+    return () => scroll.destroy();
+  }, []);
 
   const handleComplaintIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setComplaintId(value);
 
+    // when user deletes input, results disappear
     if (value === "") {
       setSubmittedComplaintId("");
     }
@@ -37,11 +38,13 @@ useEffect(() => {
     <div className="App" id="top">
       <NavBar />
       <header className="App-header">
-        <h1 className="fadeInFromLeft">On your side through life’s financial moments.</h1>
-        <p className="fadeInFromLeft">We’re the Consumer Financial Protection Bureau</p>
+        <h1 className="fadeInFromLeft">
+          On your side through life’s financial moments.
+        </h1>
+        <p className="fadeInFromLeft">Consumer Financial Protection Bureau</p>
       </header>
       <section id="section1">
-        <h2 className="fadeInFromLeft">Complaint Details</h2>
+        <h2>Complaint Details</h2>
         <form onSubmit={handleComplaintIdSubmit}>
           <input
             type="text"
@@ -62,7 +65,7 @@ useEffect(() => {
           endpoint="/api/_suggest"
           placeholder="Search complaints"
           onSuggestionSelected={(suggestion) =>
-           `Selected suggestion: {suggestion}`
+            `Selected suggestion: {suggestion}`
           }
         />
       </section>
