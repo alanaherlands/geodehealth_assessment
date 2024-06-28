@@ -89,4 +89,5 @@ const Typeahead: React.FC<TypeaheadProps> = ({
   );
 };
 
+
 export default Typeahead;
